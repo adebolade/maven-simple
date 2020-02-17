@@ -6,10 +6,20 @@
 trigger:
 - master
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'centos'
 
 steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
     goals: 'package'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
+    jdkArchitectureOption: 'x64'
+    #javaHomeOption: 'Path'
+    #jdkDirectory: '/usr/lib/jvm/jre-openjdk'
+    mavenVersionOption: 'Path'
+    mavenDirectory: '/opt/maven'
+    mavenOptions: '-Xmx2024m'
+    mavenSetM2Home: true
+    
