@@ -4,6 +4,6 @@ node {
     }
     stage('Execute maven goal'){
         def mvnHome = tool name: 'maven-3.5.2', type: 'maven'
-        sh "${mvnHome}/bin/mvn package"
+        sh "${mvnHome}/bin/mvn package -e -B"
     }
 }
